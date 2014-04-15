@@ -13,7 +13,7 @@ public class Piece {
 		return this.s;
 	}
 
-	public Boolean getTeam() {
+	public Boolean isBlack() {
 		return this.isBlack;
-	}
+	} 
 }

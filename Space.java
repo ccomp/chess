@@ -1,12 +1,21 @@
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.awt.event.*;
+
 public class Space {
 
+	private int row, col;
 	private int x, y;
 
 	public Space(int row, int col) {
-		int row = this.row;
-		int col = this.col;
+		row = this.row;
+		col = this.col;
 		x = row * 80;
 		y = col * 80;
+	}
+
+	public void init(){
+		System.out.println(row + " " + col);
 	}
 
 	public int getRow() {
@@ -29,7 +38,7 @@ public class Space {
 
 		g.drawString("Space", x, y);	
 
-		System.out.println(row, " ", col);
+		
 	}
 
 }

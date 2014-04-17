@@ -1,16 +1,17 @@
 public class Piece {
-
+		Space s;
+		Boolean isBlack;
 	public Piece(Space s, Boolean isBlack) {
-		Space s = this.s;
-		Boolean isBlack = this.isBlack;
+		this.s = s;		
+		this.isBlack = isBlack;
 	}
 
 	public void setSpace(Space sNew) {
-		this.s = sNew;
+		s = sNew;
 	}
 
 	public Space getSpace() {
-		return this.s;
+		return s;
 	}
 
 	public Boolean isBlack() {

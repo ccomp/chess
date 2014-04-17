@@ -21,15 +21,17 @@ public ArrayList<Space> makeSpaces(){
 
 Space space;
 ArrayList<Space> spaces = new ArrayList<Space>();
-	for(int x = 0; x < 7; x++){
-		for(int y = 0; y < 7; y++){
-			space = new Space(x, y);		
+	for(int x = 0; x <= 7; x++){
+		for(int y = 0; y <= 7; y++){
+			space = new Space(x, y);
+			space.init();		
 			spaces.add(space);
 	}
 	
-	return spaces;
-	
+		
 	}
+	return spaces;
+
 }
 
 public void update(){

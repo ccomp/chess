@@ -1,6 +1,7 @@
 public class Piece {
 		Space s;
 		Boolean isBlack;
+		
 	public Piece(Space s, Boolean isBlack) {
 		this.s = s;		
 		this.isBlack = isBlack;

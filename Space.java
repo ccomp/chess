@@ -35,12 +35,7 @@ public class Space {
 		col = colNew;
 	}
 
-	public void draw(Graphics2D g){
-
-		g.drawString("Space", x, y);	
-
-		
-	}
+	
 
 	public Space adjNorth() {
 		if (this.row !=0) {
@@ -107,5 +102,10 @@ public class Space {
 		Space update = new Space(this.col-1, this.row-1);
 		return update;
 	}
+	public void draw(Graphics2D g){
+		g.setColor(Color.white);
+		g.drawString("" + row + col , x, y);	
 
+		
+	}
 }

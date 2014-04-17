@@ -40,6 +40,10 @@ public void update(){
 
 public void draw(Graphics2D g){
 	g.drawString("this works", 100, 100);
+	for (int i = 0; i < spaces.size(); i++) {
+		Space s = spaces.get(i);
+		s.draw(g);
+	}
 }
 
 }

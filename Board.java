@@ -13,9 +13,13 @@ private ArrayList<Space> spaces = new ArrayList<Space>();
 		init();
 	}	
 
+	public void printSpace(Space s) {
+		System.out.println(s.getRow() + " " + s.getCol());
+	}
+
+
 public void init(){
 spaces = makeSpaces();
-}
 
 public ArrayList<Space> makeSpaces(){
 

@@ -6,6 +6,7 @@ public class Space {
 
 	private int row, col;
 	private int x, y;
+	private boolean hasPiece;
 	
 
 	public Space(int col, int row) {
@@ -13,11 +14,18 @@ public class Space {
 		this.col = col;
 		x = row * 80;
 		y = col * 80;
+		hasPiece = false;
+
 	}
 
 	public void init(){
-		System.out.println(row + " " + col);
+		
 	}
+
+	public void pieceUpdate(Boolean b) {
+		hasPiece = b;
+	}
+
 
 	public int getRow() {
 		return this.row;
@@ -42,9 +50,9 @@ public class Space {
 		
 	}
 
-	public Space adjNorth() {
-		if (this.row !=0) {
-			Space update = new Space(this.col, this.row-1);
+	public Space adjNorth(Space s) {
+		if (s.getRow() !=0) {
+			Space update = new Space(s.getCol(), s.getRow()-1);
 			return update;
 		} else {
 			return null;
@@ -52,59 +60,59 @@ public class Space {
 		
 	}
 
-	public Space adjNorthEast() {
-		if (this.row == 0 || this.col==7) {
+	public Space adjNorthEast(Space s) {
+		if (s.getRow() == 0 || s.getCol()==7) {
 			return null;
 		}
-		Space update = new Space(this.col+1, this.row-1);
+		Space update = new Space(s.getCol()+1, s.getRow()-1);
 		return update;
 	}
 
-	public Space adjEast() {
-		if (this.col==7) {
+	public Space adjEast(Space s) {
+		if (s.getCol()==7) {
 			return null;
 		}
-		Space update = new Space(this.col+1, this.row);
+		Space update = new Space(s.getCol()+1, s.getRow());
 		return update;
 	}
 
-	public Space adjSouthEast() {
-		if (this.row==7 || this.col==0) {
+	public Space adjSouthEast(Space s) {
+		if (s.getRow()==7 || s.getCol()==0) {
 			return null;
 		}
-		Space update = new Space(this.col+1, this.row+1);
+		Space update = new Space(s.getCol()+1, s.getRow()+1);
 		return update;
 	}
 
-	public Space adjSouth() {
-		if (this.row==7) {
+	public Space adjSouth(Space s) {
+		if (s.getRow()==7) {
 			return null;
 		}
-		Space update = new Space(this.col, this.row+1);
+		Space update = new Space(s.getCol(), s.getRow()+1);
 		return update;
 	}
 
-	public Space adjSouthWest() {
-		if (this.row ==7 || this.col == 0) {
+	public Space adjSouthWest(Space s) {
+		if (s.getRow() ==7 || s.getCol() == 0) {
 			return null;
 		}
-		Space update = new Space(this.col-1, this.row+1);
+		Space update = new Space(s.getCol()-1, s.getRow()+1);
 		return update;
 	}
 
-	public Space adjWest() {
-		if (this.col == 0) {
+	public Space adjWest(Space s) {
+		if (s.getCol() == 0) {
 			return null;
 		}
-		Space update = new Space(this.col-1, this.row);
+		Space update = new Space(s.getCol()-1, s.getRow());
 		return update;
 	}
 
-	public Space adjNorthWest() {
-		if (this.row == 0 || this.col == 0) {
+	public Space adjNorthWest(Space s) {
+		if (s.getRow()== 0 || s.getCol() == 0) {
 			return null;
 		}
-		Space update = new Space(this.col-1, this.row-1);
+		Space update = new Space(s.getCol()-1, s.getRow()-1);
 		return update;
 	}
 

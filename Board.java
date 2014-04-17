@@ -8,6 +8,7 @@ public class Board {
 
 
 private ArrayList<Space> spaces = new ArrayList<Space>();
+private Piece p;
 
 	public Board(){
 		init();
@@ -15,6 +16,7 @@ private ArrayList<Space> spaces = new ArrayList<Space>();
 
 public void init(){
 spaces = makeSpaces();
+p = new Piece(spaces.get(1), false);
 }
 
 public ArrayList<Space> makeSpaces(){
@@ -39,11 +41,12 @@ public void update(){
 }
 
 public void draw(Graphics2D g){
-	g.drawString("this works", 100, 100);
+	
 	for (int i = 0; i < spaces.size(); i++) {
 		Space s = spaces.get(i);
 		s.draw(g);
 	}
+	p.draw(g);
 }
 
 }

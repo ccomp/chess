@@ -35,6 +35,13 @@ public class Space {
 		col = colNew;
 	}
 
+	public int getX(){
+		return x;
+	}
+
+	public int getY(){
+		return y;
+	}
 	
 
 	public Space adjNorth() {
@@ -102,10 +109,10 @@ public class Space {
 		Space update = new Space(this.col-1, this.row-1);
 		return update;
 	}
+
+
 	public void draw(Graphics2D g){
 		g.setColor(Color.white);
-		g.drawString("" + row + col , x, y);	
-
-		
+		g.drawString("" + row + col , x, y + 10);	
 	}
 }

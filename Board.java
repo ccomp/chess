@@ -21,11 +21,10 @@ private Piece p;
 
 public void init(){
 spaces = makeSpaces();
-<<<<<<< HEAD
-=======
+
 p = new Piece(spaces.get(1), false);
 }
->>>>>>> 4546cb29043f665643f07d7f7c25bd7dd03961d5
+
 
 public ArrayList<Space> makeSpaces(){
 

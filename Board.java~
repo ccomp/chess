@@ -50,8 +50,6 @@ ArrayList<Space> spaces = new ArrayList<Space>();
 public void update(){
 	if(mouseRec.intersects(p.getRectangle())){
 		p.clicked();
-	}else{
-		p.unclicked();
 	}
 		mouseRec = new Rectangle(mx, my, 10, 10); 
 }

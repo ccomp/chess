@@ -7,7 +7,7 @@ public class Piece {
 		Boolean isBlack;
 		private int x, y;
 		public Rectangle collider;
-		private String clicker = "I'm a Piece 2.0!!!";
+		private String clicker = "I'm a piece!";
 		
 		
 	public Piece(Space s, Boolean isBlack) {

@@ -93,7 +93,7 @@ public class GamePanel extends JPanel
 		board.update();
 	}
 	public void draw() {
-		g.setColor(Color.BLACK);
+		g.setColor(Color.Black);
 		g.fillRect(0,0,WIDTH,HEIGHT);
 		board.draw(g);
 	}

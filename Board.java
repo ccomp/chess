@@ -9,9 +9,13 @@ public class Board {
 
 private ArrayList<Space> spaces = new ArrayList<Space>();
 private Piece p;
+private Rectangle mouseRec;
+
+private static int mx=0, my=0;
 
 	public Board(){
 		init();
+		mouseRec = new Rectangle(mx, my, 10, 10); 
 	}	
 
 	public void printSpace(Space s) {
@@ -23,6 +27,7 @@ public void init(){
 spaces = makeSpaces();
 
 p = new Piece(spaces.get(1), false);
+p.init();
 }
 
 
@@ -40,20 +45,45 @@ ArrayList<Space> spaces = new ArrayList<Space>();
 		
 	}
 	return spaces;
-
 }
 
 public void update(){
-
+	if(mouseRec.intersects(p.getRectangle())){
+		p.clicked();
+	}else{
+		p.unclicked();
+	}
+		mouseRec = new Rectangle(mx, my, 10, 10); 
 }
 
 public void draw(Graphics2D g){
-	
+		
 	for (int i = 0; i < spaces.size(); i++) {
 		Space s = spaces.get(i);
 		s.draw(g);
 	}
 	p.draw(g);
+	g.fillRect(mx, my, 10, 10);
 }
 
+    public static void mousePressed(MouseEvent e) {
+
+    }
+
+    public static void mouseReleased(MouseEvent e) {
+
+    }
+
+    public static void mouseEntered(MouseEvent e) {
+
+    }
+
+    public static void mouseExited(MouseEvent e) {
+
+    }
+
+    public static void mouseClicked(MouseEvent e) {
+	mx = e.getX();
+	my = e.getY();
+    }
 }

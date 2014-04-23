@@ -6,7 +6,7 @@ import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 public class GamePanel extends JPanel 
-	implements Runnable{
+	implements Runnable, MouseListener{
 
 	// dimensions 
 	public static final int WIDTH = 640;
@@ -38,6 +38,7 @@ public class GamePanel extends JPanel
 		super.addNotify();
 		if(thread == null) {
 			thread = new Thread(this);
+			addMouseListener(this);
 			thread.start();
 		}
 	}
@@ -92,6 +93,8 @@ public class GamePanel extends JPanel
 		board.update();
 	}
 	public void draw() {
+		g.setColor(Color.BLACK);
+		g.fillRect(0,0,WIDTH,HEIGHT);
 		board.draw(g);
 	}
 	private void drawToScreen() {
@@ -101,4 +104,24 @@ public class GamePanel extends JPanel
 				null);
 		g2.dispose();
 	}
+
+    public void mousePressed(MouseEvent e) {
+	board.mousePressed(e);
+    }
+
+    public void mouseReleased(MouseEvent e) {
+	board.mouseReleased(e);		
+    }
+
+    public void mouseEntered(MouseEvent e) {
+	board.mouseEntered(e);		
+    }
+
+    public void mouseExited(MouseEvent e) {
+	board.mouseExited(e);		
+    }
+
+    public void mouseClicked(MouseEvent e) {
+	board.mouseClicked(e);		
+    }
 }

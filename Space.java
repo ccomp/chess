@@ -105,6 +105,9 @@ public class Space {
 	}
 
 	public Space adjSouthWest() {
+
+
+
 		if (getRow() ==7 || getCol() == 0) {
 			return null;
 		}
@@ -113,6 +116,8 @@ public class Space {
 	}
 
 	public Space adjWest() {
+
+
 		if (getCol() == 0) {
 			return null;
 		}

@@ -46,7 +46,7 @@ public class Piece {
 		clicker = "clicked";
 	}	
 	public void unclicked(){
-		clicker = "I'm a Piece 2.0!!!";
+		clicker = "I'm a Nigguh 2.0!!!";
 	}	
 }
 

@@ -22,8 +22,14 @@ public class Space {
 		
 	}
 
-	public boolean hasPiece() {
-		return hasPiece;
+	public Piece getPiece() {
+		for (Piece p : pieces) {
+			if (p.getSpace() == this) {
+				return p;
+			}
+
+			return null;
+		}
 	}
 
 	public void pieceUpdate(Boolean b) {
@@ -58,7 +64,7 @@ public class Space {
 
 	public Space adjNorth() {
 		if (getRow() !=0) {
-			Space update = new Space(getCol(), s.getRow()-1);
+			Space update = new Space(getCol(), getRow()-1);
 			return update;
 		} else {
 			return null;
@@ -67,7 +73,7 @@ public class Space {
 	}
 
 	public Space adjNorthEast() {
-		if (getRow() == 0 || s.getCol()==7) {
+		if (getRow() == 0 || getCol()==7) {
 			return null;
 		}
 		Space update = new Space(getCol()+1, getRow()-1);

@@ -9,48 +9,35 @@ public class Pawn extends Piece {
 	public ArrayList<Space> getMoveLocations() {
 		ArrayList<Space> locs = new ArrayList<Space>();
 		if (isBlack()) {
-		 	if (super.getSpace().adjNorth().hasPiece() == false) {
-		 		locs.add(super.getSpace().adjNorth());
+		 	if (super.getSpace().adjSouth().getPiece() == null) {
+		 		locs.add(super.getSpace().adjSouth());
 		 	}
 
-		 	if (super.getSpace().adjNorthEast().hasPiece()) {
-		 		for (Piece p: pieces) {
-		 			if (p.getSpace() ==  super.getSpace().adjNorthEast() && p.isBlack() == false) {
-		 				locs.add(super.getSpace().adjNorthEast());
-		 			}
-		 		}
+		 	if (super.getSpace().adjSouthEast().getPiece().isBlack() == false) {
+		 		locs.add(super.getSpace().adjSouth());
 		 	}
 
-		 	if (super.getSpace().adjNorthWest().hasPiece()) {
-		 		for (Piece p: pieces) {
-		 			if (p.getSpace() ==  super.getSpace().adjNorthWest() && p.isBlack() == false) {
-		 				locs.add(super.getSpace().adjNorthWest());
-		 			}
-		 		}
+		 	if (super.getSpace().adjSouthWest().getPiece().isBlack() == false) {
+		 		locs.add(super.getSpace().adjSouth());
 		 	}
+
 		} else {
 
-			if (super.getSpace().adjSouth().hasPiece() == false) {
-				locs.add(super.getSpace().adjSouth());
+			if (super.getSpace().adjNorth().getPiece() == null) {
+				locs.add(super.getSpace().adjNorth());
 			}
 
-			if (super.getSpace().adjSouthEast().hasPiece()) {
-				for (Piece p: pieces) {
-					if (p.getSpace() ==  super.getSpace().adjSouthEast() && p.isBlack()) {
-						locs.add(super.getSpace().adjSouthEast());
-					}
-				}
+			if (super.getSpace().adjNorthWest().getPiece().isBlack() == true) {
+				locs.add(super.getSpace().adjNorthWest());
 			}
 
-			if (super.getSpace().adjSouthWest().hasPiece()) {
-				for (Piece p: pieces) {
-					if (p.getSpace() ==  super.getSpace().adjSouthWest() && p.isBlack()) {
-						locs.add(super.getSpace().adjSouthWest());
-					}
-				}
+			if (super.getSpace().adjNorthEast().getPiece().isBlack() == true) {
+				locs.add(super.getSpace().adjNorthEast());
 			}
 		}
 
 		return locs;
 	}
+
+
 }

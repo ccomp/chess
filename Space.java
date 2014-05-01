@@ -1,13 +1,14 @@
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 public class Space {
 
 	private int row, col;
 	private int x, y;
 	private boolean hasPiece;
-	
+	private ArrayList<Piece> pieces = new ArrayList<Piece>();	
 
 	public Space(int col, int row) {
 		this.row = row;
@@ -27,9 +28,8 @@ public class Space {
 			if (p.getSpace() == this) {
 				return p;
 			}
-
-			return null;
 		}
+			return null;
 	}
 
 	public void pieceUpdate(Boolean b) {

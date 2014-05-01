@@ -13,6 +13,7 @@ private static Rectangle mouseRec;
 private static int ready = 0;
 
 private static int mx=0, my=0;
+private ArrayList<Piece> pieces = new ArrayList<Piece>();
 
 	public Board(){
 		init();
@@ -56,6 +57,10 @@ public void update(){
 	        }
 	}
 		mouseRec = new Rectangle(mx, my, 10, 10); 
+}
+
+public ArrayList<Piece> getPieces() {
+	return pieces;
 }
 
 public void draw(Graphics2D g){

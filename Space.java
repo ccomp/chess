@@ -72,6 +72,45 @@ public class Space {
 		
 	}
 
+	public Space adjDeg(int deg) {
+		if (deg == 0) {
+			return adjEast();
+		}
+
+		if (deg == 45) {
+			return adjNorthEast();
+		}
+
+		if (deg == 90) {
+			return adjNorth();
+		}
+
+		if (deg == 135) {
+			return adjNorthWest();
+		}
+
+		if (deg == 180) {
+			return adjWest();
+		}
+
+		if (deg == 225) {
+			return adjSouthWest();
+		}
+
+		if (deg == 270) {
+			return adjSouth();
+		}
+
+		if (deg == 315) {
+			return adjSouthEast();
+		} else {
+			return null;
+		}
+
+			
+		}
+	}
+
 	public Space adjNorthEast() {
 		if (getRow() == 0 || getCol()==7) {
 			return null;

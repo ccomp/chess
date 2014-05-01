@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 public class Board {
 
 
-private ArrayList<Space> spaces = new ArrayList<Space>();
+private static ArrayList<Space> spaces = new ArrayList<Space>();
 private static Piece p;
 private static Rectangle mouseRec;
 private static int ready = 0;
@@ -50,13 +50,9 @@ ArrayList<Space> spaces = new ArrayList<Space>();
 }
 
 public void update(){
-	if(ready == 1){	
-        if(!mouseRec.intersects(p.getRectangle())){
-        	p.unclicked();
-        	notReady();
-	        }
-	}
 		mouseRec = new Rectangle(mx, my, 10, 10); 
+		System.out.println(ready);
+		p.update();
 }
 
 public ArrayList<Piece> getPieces() {
@@ -87,6 +83,11 @@ public static void notReady(){
 	}	
 
 }
+
+public static void moveTo(Piece np, Space s){
+	np.setPosition(s.getX(), s.getY());	
+}
+
     public static void mousePressed(MouseEvent e) {
 
     }
@@ -107,10 +108,22 @@ public static void notReady(){
 	mx = e.getX();
 	my = e.getY();
 	if(ready == 0){	
-        if(mouseRec.intersects(p.getRectangle())){
-        	p.clicked();
-        	ready();
+       		if(mouseRec.intersects(p.getRectangle())){
+        		p.clicked();
+        		ready();
 		}
+	}
+	if(ready > 0){	
+       		if(!mouseRec.intersects(p.getRectangle())){
+        		p.unclicked();
+        		notReady();
+			for(int i = 0; i < spaces.size(); i++){
+				Space s = spaces.get(i);
+				if(mouseRec.intersects(s.getRectangle())){
+					moveTo(p, s); 
+				}	
+			}
+	    }
 	}
     }
 }

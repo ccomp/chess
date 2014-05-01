@@ -9,6 +9,7 @@ public class Space {
 	private int x, y;
 	private boolean hasPiece;
 	private ArrayList<Piece> pieces = new ArrayList<Piece>();	
+	private Rectangle collider;
 
 	public Space(int col, int row) {
 		this.row = row;
@@ -16,6 +17,7 @@ public class Space {
 		x = row * 80;
 		y = col * 80;
 		hasPiece = false;
+		collider = new Rectangle(x, y, 80, 80);
 
 	}
 
@@ -60,6 +62,10 @@ public class Space {
 	public int getY(){
 		return y;
 	}
+	
+	public Rectangle getRectangle(){
+		return collider;
+	}
 
 	public boolean isEqual(Space s){
 		if(row == s.getRow() && col == s.getCol()){
@@ -68,6 +74,10 @@ public class Space {
 		return false;
 	}	
 
+	public void draw(Graphics2D g){
+		g.setColor(Color.white);
+		g.drawString("" + row + col , x, y + 10);	
+	}
 	public Space adjNorth() {
 		if (getRow() !=0) {
 			Space update = new Space(getCol(), getRow()-1);
@@ -179,8 +189,4 @@ public class Space {
 	}
 
 
-	public void draw(Graphics2D g){
-		g.setColor(Color.white);
-		g.drawString("" + row + col , x, y + 10);	
-	}
 }

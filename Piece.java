@@ -21,8 +21,17 @@ public class Piece {
 		collider = new Rectangle(x, y, 80, 80);
 	}
 
+	public void update(){
+	 collider = new Rectangle(x, y, 80, 80);
+	}
+
 	public void setSpace(Space sNew) {
 		s = sNew;
+	}
+
+	public void setPosition(int nx, int ny){
+		x = nx;
+		y = ny;
 	}
 
 	public Space getSpace() {

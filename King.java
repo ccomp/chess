@@ -6,7 +6,7 @@ public class King extends Piece {
 
 	public King(Space s, Boolean isBlack){
 		super(s, isBlack);	
-		hasCastled == false;
+		hasCastled = false;
 	}
 
 	public ArrayList<Space> getMoveLocations() {
@@ -44,6 +44,6 @@ public class King extends Piece {
 				locs.add(wcl2);
 			}
 		}
-
+	return locs;
 	}
 }

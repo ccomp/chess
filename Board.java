@@ -8,9 +8,9 @@ public class Board {
 
 
 private ArrayList<Space> spaces = new ArrayList<Space>();
-private Piece p;
-private Rectangle mouseRec;
-private int ready = 0;
+private static Piece p;
+private static Rectangle mouseRec;
+private static int ready = 0;
 
 private static int mx=0, my=0;
 
@@ -49,12 +49,6 @@ ArrayList<Space> spaces = new ArrayList<Space>();
 }
 
 public void update(){
-	if(ready == 0){	
-        if(mouseRec.intersects(p.getRectangle())){
-        	p.clicked();
-        	ready();
-		}
-	}
 	if(ready == 1){	
         if(!mouseRec.intersects(p.getRectangle())){
         	p.unclicked();
@@ -74,14 +68,14 @@ public void draw(Graphics2D g){
 	g.fillRect(mx, my, 10, 10);
 }
 
-public void ready(){
+public static void ready(){
 	if(ready == 0){
 		ready++;
 		System.out.println(ready);
 	}	
 }
 
-public void notReady(){
+public static void notReady(){
 	if(ready == 1){
 		ready = 0;
 		System.out.println(ready);
@@ -107,5 +101,11 @@ public void notReady(){
     public static void mouseClicked(MouseEvent e) {
 	mx = e.getX();
 	my = e.getY();
+	if(ready == 0){	
+        if(mouseRec.intersects(p.getRectangle())){
+        	p.clicked();
+        	ready();
+		}
+	}
     }
 }

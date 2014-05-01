@@ -60,7 +60,13 @@ public class Space {
 	public int getY(){
 		return y;
 	}
-	
+
+	public boolean isEqual(Space s){
+		if(row == s.getRow() && col == s.getCol()){
+			return true;
+		}
+		return false;
+	}	
 
 	public Space adjNorth() {
 		if (getRow() !=0) {

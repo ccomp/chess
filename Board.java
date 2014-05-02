@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 public class Board {
 
 
-private static ArrayList<Space> spaces = new ArrayList<Space>();
+private static ArrayList<Space> spaces;
 private static Piece p;
 private static Rectangle mouseRec;
 private static int ready = 0;
@@ -28,7 +28,7 @@ private ArrayList<Piece> pieces = new ArrayList<Piece>();
 public void init(){
 spaces = makeSpaces();
 
-p = new Piece(spaces.get(1), false);
+p = new Pawn(spaces.get(1), false);
 p.init();
 }
 
@@ -36,7 +36,7 @@ p.init();
 public ArrayList<Space> makeSpaces(){
 
 Space space;
-ArrayList<Space> spaces = new ArrayList<Space>();
+spaces = new ArrayList<Space>();
 	for(int x = 0; x <= 7; x++){
 		for(int y = 0; y <= 7; y++){
 			space = new Space(x, y);
@@ -49,9 +49,12 @@ ArrayList<Space> spaces = new ArrayList<Space>();
 	return spaces;
 }
 
+public ArrayList<Space> getSpaces(){
+	return spaces;
+}
+
 public void update(){
 		mouseRec = new Rectangle(mx, my, 10, 10); 
-		System.out.println(ready);
 		p.update();
 }
 

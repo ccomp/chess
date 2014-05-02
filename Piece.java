@@ -5,8 +5,8 @@ import java.awt.event.*;
 public class Piece {
 		Space s;
 		Boolean isBlack;
-		private int x, y;
-		public Rectangle collider;
+		protected int x, y;
+		protected Rectangle collider;
 		private String clicker = "I'm a Piece nigguh!!!";
 		
 		

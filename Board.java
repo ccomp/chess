@@ -8,7 +8,7 @@ public class Board {
 
 
 private static ArrayList<Space> spaces;
-private static Piece p;
+private static Rook p;
 private static Rectangle mouseRec;
 private static int ready = 0;
 
@@ -28,7 +28,7 @@ private ArrayList<Piece> pieces = new ArrayList<Piece>();
 public void init(){
 spaces = makeSpaces();
 
-p = new Pawn(spaces.get(1), false);
+p = new Rook(spaces.get(48), true);
 p.init();
 }
 
@@ -87,8 +87,20 @@ public static void notReady(){
 
 }
 
+public static boolean isValid(Piece np, Space s){
+	for(int i = 0; i < np.getMoveLocations().size(); i++){
+		Space ns = np.getMoveLocations().get(i);
+		if(ns.isEqual(s)){
+			return true;	
+		}	
+	} 
+		return false;
+}
+
 public static void moveTo(Piece np, Space s){
 	np.setPosition(s.getX(), s.getY());	
+	np.setSpace(s);
+       	notReady();
 }
 
     public static void mousePressed(MouseEvent e) {
@@ -119,11 +131,16 @@ public static void moveTo(Piece np, Space s){
 	if(ready > 0){	
        		if(!mouseRec.intersects(p.getRectangle())){
         		p.unclicked();
-        		notReady();
 			for(int i = 0; i < spaces.size(); i++){
 				Space s = spaces.get(i);
 				if(mouseRec.intersects(s.getRectangle())){
+					if(isValid(p, s)){
 					moveTo(p, s); 
+					p.printValids();
+					}else{
+						System.out.println("not valid");
+					}
+					notReady();
 				}	
 			}
 	    }

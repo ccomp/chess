@@ -155,7 +155,7 @@ public class Space {
 		if (getRow()==7) {
 			return null;
 		}
-		Space update = new Space(getCol(), getRow()+1);
+		Space update = new Space(getCol() + 1, getRow());
 		return update;
 	}
 

@@ -11,54 +11,84 @@ public class Pawn extends Piece {
 		super(s, isBlack);	
 	}
 
+	public void init(){
+		printValids();
+	}
+
 	public void draw(Graphics2D g){
 		g.drawString(clicker, x + 20, y + 20);
+	}
+
+	public void printValids(){
+		System.out.println("cur row col " + getRow() + " " + getCol());
+		for(int i = 0; i < getMoveLocations().size(); i++){
+			Space s = getMoveLocations().get(i);
+			System.out.println("Row " + s.getRow() + "Col" + s.getCol());
+		}	
 	}
 
 	public ArrayList<Space> getMoveLocations() {
 		ArrayList<Space> locs = new ArrayList<Space>();
 		if (isBlack()) {
-		 	if (super.getSpace().adjSouth().getPiece() == null) {
-		 		locs.add(super.getSpace().adjSouth());
+		 	if (getSpace().adjSouth().getPiece() == null) {
+		 		locs.add(getSpace().adjSouth());
 		 	}
 
-		 	if (super.getSpace().adjSouthEast().getPiece().isBlack() == false) {
-		 		locs.add(super.getSpace().adjSouth());
-		 	}
 
-		 	if (super.getSpace().adjSouthWest().getPiece().isBlack() == false) {
-		 		locs.add(super.getSpace().adjSouth());
-		 	}
+		 	if (getSpace().adjSouthEast().getPiece() != null) {
+		 		if (!getSpace().adjSouthEast().getPiece().isBlack()) {
+		 			locs.add(getSpace().adjSouth());
+		 		}
+			}
+		 	if (getSpace().adjSouthWest().getPiece() != null) {
+				if (!getSpace().adjSouthWest().getPiece().isBlack()) {
+					locs.add(getSpace().adjSouth());
+				}
+			}
 
 		} else {
 
-			if (super.getSpace().adjNorth().getPiece() == null) {
-				locs.add(super.getSpace().adjNorth());
+			if (getSpace().adjNorth().getPiece() == null) {
+				locs.add(getSpace().adjNorth());
 			}
 
-			if (super.getSpace().adjNorthWest().getPiece().isBlack() == true) {
-				locs.add(super.getSpace().adjNorthWest());
+		 	if (getSpace().adjNorthEast().getPiece() != null) {
+				if (getSpace().adjNorthEast().getPiece().isBlack() == true) {
+					locs.add(getSpace().adjNorthEast());
+				}
 			}
 
-			if (super.getSpace().adjNorthEast().getPiece().isBlack() == true) {
-				locs.add(super.getSpace().adjNorthEast());
+		 	if (getSpace().adjNorthWest().getPiece() != null) {
+				if (getSpace().adjNorthWest().getPiece().isBlack()) {
+					locs.add(getSpace().adjNorthWest());
+			}
+
+
+			return locs;
 			}
 		}
-
-		return locs;
 	}
 
-	public void update(){
-	 collider = new Rectangle(x, y, 80, 80);
+		public boolean isValid(Space s){
+			if(s.getRow() == getRow() - 1){
+				if(s.getCol() == getCol()){
+					return true;
+				}	
+			}
+			return false;
+		}
+
+		public void update(){
+		 collider = new Rectangle(x, y, 80, 80);
+		}
+
+		public void clicked(){
+			clicker = "clickedPawn";
+		}	
+		public void unclicked(){
+			clicker = "unclickedPawn";
+		}	
+
+		
+
 	}
-
-	public void clicked(){
-		clicker = "clickedPawn";
-	}	
-	public void unclicked(){
-		clicker = "unclickedPawn";
-	}	
-
-	
-
-}

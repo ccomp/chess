@@ -1,6 +1,7 @@
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 public class Piece {
 		Space s;
@@ -17,25 +18,36 @@ public class Piece {
 		y = s.getY();
 	}
 
+	public ArrayList<Space> getMoveLocations(){
+		ArrayList<Space> spaces = new ArrayList<Space>();
+		System.out.println("Wrong one");
+		return spaces;
+	}	
+	
 	public void init(){
 		collider = new Rectangle(x, y, 80, 80);
 	}
 
 	public void update(){
 	 collider = new Rectangle(x, y, 80, 80);
+
 	}
 
 	public void setSpace(Space sNew) {
 		s = sNew;
 	}
 
+	public int getRow(){
+		return x / 80;
+	}
+
+	public int getCol(){
+		return y / 80;
+	}
+
 	public void setPosition(int nx, int ny){
 		x = nx;
 		y = ny;
-	}
-
-	public Space getSpace() {
-		return s;
 	}
 
 	public Boolean isBlack() {

@@ -46,6 +46,10 @@ public class Pawn extends Piece {
 				}
 			}
 
+			if (getSpace().getX() == 1) {
+				locs.add(getSpace().adjSouth().adjSouth());
+			}
+
 		} else {
 
 			if (getSpace().adjNorth().getPiece() == null) {
@@ -61,12 +65,14 @@ public class Pawn extends Piece {
 		 	if (getSpace().adjNorthWest().getPiece() != null) {
 				if (getSpace().adjNorthWest().getPiece().isBlack()) {
 					locs.add(getSpace().adjNorthWest());
+				}			
 			}
 
-
-			return locs;
-			}
+			if (getSpace().getX() == 6) {
+					locs.add(getSpace().adjNorth().adjNorth());
+				}	
 		}
+		return locs;
 	}
 
 		public boolean isValid(Space s){

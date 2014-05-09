@@ -62,11 +62,9 @@ public class Pawn extends Piece {
 				if (getSpace().adjNorthWest().getPiece().isBlack()) {
 					locs.add(getSpace().adjNorthWest());
 			}
-
-
-			return locs;
 			}
 		}
+			return locs;
 	}
 
 		public boolean isValid(Space s){

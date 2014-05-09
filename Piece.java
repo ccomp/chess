@@ -11,7 +11,7 @@ public class Piece {
 		private String clicker = "I'm a Piece nigguh!!!";
 		
 		
-	public Piece(Space s, Boolean isBlack) {
+	public Piece(Space s, boolean isBlack) {
 		this.s = s;		
 		this.isBlack = isBlack;
 		x = s.getX();
@@ -29,8 +29,11 @@ public class Piece {
 	}
 
 	public void update(){
-	 collider = new Rectangle(x, y, 80, 80);
+		collider = new Rectangle(x, y, 80, 80);
+	}
 
+	public Space getSpace(){
+		return s;
 	}
 
 	public void setSpace(Space sNew) {

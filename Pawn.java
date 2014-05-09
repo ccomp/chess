@@ -67,19 +67,15 @@ public class Pawn extends Piece {
 					locs.add(getSpace().adjNorthWest());
 				}			
 			}
-<<<<<<< HEAD
-			}
 		}
-			return locs;
-=======
+		 
 
 			if (getSpace().getX() == 6) {
 					locs.add(getSpace().adjNorth().adjNorth());
 				}	
-		}
 		return locs;
->>>>>>> 1023005f0a067239b8a12a8923a8a1378402738f
-	}
+		}
+	
 
 		public boolean isValid(Space s){
 			if(s.getRow() == getRow() - 1){

@@ -36,4 +36,6 @@ public class Rook extends Piece {
 
 		return locs;
 	}
+
+	
 }

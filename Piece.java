@@ -11,6 +11,7 @@ public class Piece {
 		private String clicker = "I'm a Piece nigguh!!!";
 		private String printed = "";
 		protected String name;
+		private ArrayList<Space> locs;
 		
 		
 	public Piece(Space s, boolean isBlack) {
@@ -18,6 +19,22 @@ public class Piece {
 		this.isBlack = isBlack;
 		x = s.getX();
 		y = s.getY();
+	}
+
+	public void move(Space loc) {
+		for (Space l: this.locs) {
+				if (loc.equals(l)) {
+					if (loc.getPiece() != null) {
+						setSpace(loc);
+					}
+			
+			} else if (loc.getPiece().isBlack() != isBlack) {
+				Piece temp = loc.getPiece();
+				GamePanel.getBoard().getPieces().remove(loc.getPiece());
+				GamePanel.getBoard().getPieces().add(temp);
+				setSpace(loc);
+			}
+		}
 	}
 
 	public ArrayList<Space> getMoveLocations(){
@@ -40,6 +57,10 @@ public class Piece {
 
 	public void update(){
 		collider = new Rectangle(x, y, 80, 80);
+	}
+
+	public ArrayList<Space> getLocs() {
+		return locs;
 	}
 
 	public Space getSpace(){

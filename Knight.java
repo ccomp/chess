@@ -65,4 +65,5 @@ public class Knight extends Piece {
 
 		return locs;
 	}
+
 }

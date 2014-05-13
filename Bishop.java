@@ -18,4 +18,8 @@ public class Bishop extends Piece {
 
 		return locs;
 	}
+
+	public ArrayList<Piece> getLocs() {
+		return locs;
+	}
 }

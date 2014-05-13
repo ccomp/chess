@@ -14,6 +14,7 @@ private static int ready = 0;
 
 private static int mx=0, my=0;
 public ArrayList<Piece> pieces = new ArrayList<Piece>();
+public ArrayList<Piece> graveyard = new ArrayList<Piece>();
 
 	public Board(){
 		init();
@@ -60,6 +61,10 @@ public void update(){
 
 public ArrayList<Piece> getPieces() {
 	return pieces;
+}
+
+public ArrayList<Piece> getGraveyard() {
+	return graveyard;
 }
 
 public void draw(Graphics2D g){

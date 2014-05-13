@@ -4,6 +4,7 @@ public class Rook extends Piece {
 	
 	public Rook(Space s, Boolean isBlack) {
 		super(s, isBlack);
+		name = "Rook";
 	}
 
 	public void init(){
@@ -24,12 +25,12 @@ public class Rook extends Piece {
 
 		for(int i = 0; i < 8; i++){
 			Space s;
-			s = new Space(getRow(), i);
+			s = new Space(getCol(), i);
 			locs.add(s);
 		}
 		for(int i = 0; i < 8; i++){
 			Space s;
-			s = new Space(i, getCol());
+			s = new Space(i, getRow());
 			locs.add(s);
 		}
 

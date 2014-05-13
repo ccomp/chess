@@ -9,6 +9,8 @@ public class Piece {
 		protected int x, y;
 		protected Rectangle collider;
 		private String clicker = "I'm a Piece nigguh!!!";
+		private String printed = "";
+		protected String name;
 		
 		
 	public Piece(Space s, boolean isBlack) {
@@ -26,6 +28,14 @@ public class Piece {
 	
 	public void init(){
 		collider = new Rectangle(x, y, 80, 80);
+		if(isBlack){
+			printed += "black ";
+		}else{
+			printed += "white ";
+		}
+
+		printed += name;
+
 	}
 
 	public void update(){
@@ -70,7 +80,7 @@ public class Piece {
 		clicker = "clicked";
 	}	
 	public void unclicked(){
-		clicker = "I'm a Nigguh 2.0!!!";
+		clicker = name;
 	}	
 }
 

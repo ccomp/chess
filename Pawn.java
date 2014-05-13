@@ -9,6 +9,7 @@ public class Pawn extends Piece {
 
 	public Pawn(Space s, Boolean isBlack){
 		super(s, isBlack);	
+		name = "pawn";
 	}
 
 	public void init(){

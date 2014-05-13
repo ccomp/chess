@@ -13,7 +13,7 @@ private static Rectangle mouseRec;
 private static int ready = 0;
 
 private static int mx=0, my=0;
-private ArrayList<Piece> pieces = new ArrayList<Piece>();
+public ArrayList<Piece> pieces = new ArrayList<Piece>();
 
 	public Board(){
 		init();

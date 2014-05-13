@@ -23,7 +23,7 @@ public class GamePanel extends JPanel
 	private Graphics2D g;
 
 	// game state manager
-	private Board board;
+	private static Board board;
 
 	public GamePanel() {
 		super();
@@ -42,7 +42,7 @@ public class GamePanel extends JPanel
 		}
 	}
 
-	public Board getBoard(){
+	public static Board getBoard(){
 		return board;
 	} 
 

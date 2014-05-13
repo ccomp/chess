@@ -4,7 +4,6 @@ import java.awt.event.*;
 
 import javax.swing.JPanel;
 
-@SuppressWarnings("serial")
 public class GamePanel extends JPanel 
 	implements Runnable, MouseListener{
 

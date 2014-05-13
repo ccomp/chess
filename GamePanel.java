@@ -42,6 +42,10 @@ public class GamePanel extends JPanel
 		}
 	}
 
+	public Board getBoard(){
+		return board;
+	} 
+
 	private void init() {
 		image = new BufferedImage(
 					WIDTH, HEIGHT,

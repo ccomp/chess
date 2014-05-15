@@ -1,13 +1,15 @@
 import java.util.ArrayList;
 
 public class Bishop extends Piece {
+
+	private ArrayList<Space> locs = new ArrayList<Space>();
 	
 	public Bishop(Space s, Boolean isBlack) {
 		super(s, isBlack);
 	}
 
 	public ArrayList<Space> getMoveLocations() {
-		ArrayList<Space> locs = new ArrayList<Space>();
+
 		Space here = super.getSpace();
 
 		for (int i = 0; i<=315; i+=45) {
@@ -19,7 +21,7 @@ public class Bishop extends Piece {
 		return locs;
 	}
 
-	public ArrayList<Piece> getLocs() {
+	public ArrayList<Space> getLocs() {
 		return locs;
 	}
 }
